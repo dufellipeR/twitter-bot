@@ -8,7 +8,7 @@ def tweepy_auth(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET):
     return api
 
 def retweet_favorites(api, username):
-    for tweet in api.favorites(username):
+    for tweet in api.favorites(username, count=100):
         print(tweet.user.name, tweet.text)
         try:
             api.retweet(tweet.id)
