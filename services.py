@@ -9,6 +9,7 @@ def tweepy_auth(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET):
 
 def retweet_favorites(api, username):
     for tweet in api.favorites(username):
+        print(tweet.user.name, tweet.text)
         try:
             api.retweet(tweet.id)
         except tweepy.TweepError as e:
